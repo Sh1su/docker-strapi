@@ -20,10 +20,10 @@ API with no effort.
 Using Docker Compose, create `docker-compose.yml` file with the following content:
 
 ```yaml
-version: "3"
+version: "3.8"
 services:
   strapi:
-    image: naskio/strapi
+    image: sh1su/strapi
     environment:
       NODE_ENV: development # or production
     ports:
@@ -35,10 +35,10 @@ services:
 or using Docker:
 
 ```shell
-docker run -d -p 1337:1337 naskio/strapi --env NODE_ENV=development
+docker run -d -p 1337:1337 sh1su/strapi --env NODE_ENV=development
 ```
 
-You can find more example on [GitHub](https://github.com/naskio/docker-strapi/tree/main/examples).
+You can find more example on [GitHub](https://github.com/sh1su/docker-strapi/tree/main/examples).
 
 ---
 
@@ -47,9 +47,9 @@ You can find more example on [GitHub](https://github.com/naskio/docker-strapi/tr
 This image allows you to create a new strapi project or run an existing strapi project.
 
 - for `$NODE_ENV = development`: The command that will run in your project
-  is [`strapi develop`](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop).
+  is [`yarn develop`](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop).
 - for `$NODE_ENV = production`: The command that will run in your project
-  is [`strapi start`](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start).
+  is [`yarn start`](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start).
 
 > The [Content-Type Builder](https://strapi.io/features/content-types-builder) plugin is disabled WHEN `$NODE_ENV = production`.
 
@@ -57,7 +57,7 @@ This image allows you to create a new strapi project or run an existing strapi p
 
 When running this image, strapi will check if there is a project in the `/srv/app` folder of the container. If there is
 nothing then it will run
-the [`strapi new`](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-new)
+the [`create-strapi-app new`](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-new)
 command in the container /srv/app folder.
 
 This command creates a project with an SQLite database. Then starts it on port `1337`.
@@ -65,7 +65,7 @@ This command creates a project with an SQLite database. Then starts it on port `
 **Environment variables**
 
 When creating a new project with this image you can pass database configurations to
-the [`strapi new`](https://strapi.io/documentation/developer-docs/latest/developer-resources/cli/CLI.html#strapi-new)
+the [`create-strapi-app new`](https://strapi.io/documentation/developer-docs/latest/developer-resources/cli/CLI.html#strapi-new)
 command.
 
 - `DATABASE_CLIENT` a database provider supported by Strapi: (sqlite, postgres, mysql ,mongo).
@@ -76,7 +76,7 @@ command.
 - `DATABASE_PASSWORD` database password.
 - `DATABASE_SSL` boolean for SSL.
 - `EXTRA_ARGS` pass extra args to
-  the [`strapi new`](https://strapi.io/documentation/developer-docs/latest/developer-resources/cli/CLI.html#strapi-new).
+  the [`create-strapi-app new`](https://strapi.io/documentation/developer-docs/latest/developer-resources/cli/CLI.html#strapi-new).
 
 ## Running an existing strapi project
 
