@@ -7,8 +7,7 @@ FROM base-debian
 
 ARG STRAPI_VERSION=latest
 
-RUN yarn global add @strapi/strapi@${STRAPI_VERSION}
-
+RUN yarn global add create-strapi-app
 
 RUN mkdir -p /srv/app && chown 1000:1000 -R /srv/app
 
@@ -22,4 +21,4 @@ RUN chmod 777 /usr/local/bin/docker-entrypoint.sh && ln -s /usr/local/bin/docker
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-CMD ["strapi"]
+CMD ["create-strapi-app"]

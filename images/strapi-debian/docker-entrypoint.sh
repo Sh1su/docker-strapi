@@ -1,7 +1,9 @@
 #!/bin/sh
 set -ea
 
-if [ "$*" = "strapi" ]; then
+echo "Starting point"
+
+if [ "$*" = "create-strapi-app" ]; then
 
   if [ ! -f "package.json" ]; then
 
@@ -9,10 +11,9 @@ if [ "$*" = "strapi" ]; then
 
     EXTRA_ARGS=${EXTRA_ARGS}
 
-    echo "Using strapi $(strapi version)"
     echo "No project found at /srv/app. Creating a new strapi project ..."
 
-    DOCKER=true strapi new . --no-run \
+    DOCKER=true create-strapi-app . --no-run \
       --dbclient=$DATABASE_CLIENT \
       --dbhost=$DATABASE_HOST \
       --dbport=$DATABASE_PORT \
@@ -45,7 +46,7 @@ if [ "$*" = "strapi" ]; then
   fi
 
   echo "Starting your app (with ${STRAPI_MODE:-develop})..."
-  exec strapi "${STRAPI_MODE:-develop}"
+  exec yarn "${STRAPI_MODE:-develop}"
 
 else
   exec "$@"
