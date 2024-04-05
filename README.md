@@ -1,4 +1,4 @@
-# strapi (v4+) containerized
+# strapi (v4+) containerized with NODE 18
 
 ![Strapi](https://github.com/naskio/docker-strapi/blob/main/assets/PNG.logo.purple.dark.png?raw=true)
 
