@@ -13,7 +13,8 @@ if [ "$*" = "create-strapi-app" ]; then
 
     echo "No project found at /srv/app. Creating a new strapi project ..."
 
-    DOCKER=true create-strapi-app . --no-run \
+    DOCKER=true create-strapi-app . --skip-cloud \
+      --no-run \
       --dbclient=$DATABASE_CLIENT \
       --dbhost=$DATABASE_HOST \
       --dbport=$DATABASE_PORT \
