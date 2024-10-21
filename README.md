@@ -1,8 +1,8 @@
-# strapi (v4+) containerized with NODE 18
+# strapi (v5+) containerized with NODE 18
 
 ![Strapi](https://github.com/naskio/docker-strapi/blob/main/assets/PNG.logo.purple.dark.png?raw=true)
 
-> Docker image for strapi version 4 (latest version)
+> Docker image for strapi version 5 (latest version)
 
 API creation made simple, secure and fast. The most advanced open-source Content Management Framework to build powerful
 API with no effort.
